@@ -34,3 +34,8 @@ DROP TABLESPACE undotbs1 INCLUDING CONTENTS AND DATAFILES;
 
 -- Fix ORA-01555 Snapshot Too Old  --- ************ v.imp 
 ALTER SYSTEM SET undo_retention = 3600;  -- 1 hour
+
+
+-- retention gaurentee concept
+ALTER SYSTEM SET undo_retention = 1800 GUARANTEE;
+ALTER SYSTEM SET undo_retention = 1800 NO GUARANTEE;
