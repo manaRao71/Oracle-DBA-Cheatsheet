@@ -1,0 +1,188 @@
+1. Why Data Guard exists
+Why do companies use Data Guard?
+Disaster Recovery (DR)
+High Availability vs Disaster Recovery
+RPO and RTO
+Primary vs Standby databases
+Physical vs Logical vs Snapshot Standby
+Protection Modes
+Maximum Protection
+Maximum Availability
+Maximum Performance
+
+2. Data Guard Architecture
+Primary database
+Standby database
+Redo generation
+Redo transport
+Redo Apply
+Archive logs
+Standby Redo Logs (SRL)
+Online Redo Logs
+FAL Server
+FAL Client (older versions)
+LOG_ARCHIVE_DEST_n
+LOG_ARCHIVE_CONFIG
+DB_UNIQUE_NAME
+DB_NAME
+Remote Login Password File
+FORCE LOGGING
+
+Know exactly how redo travels from one database to another.
+
+3. Manual Data Guard Setup (Very Important)
+
+Enable ARCHIVELOG mode
+Enable FORCE LOGGING
+Create standby redo logs
+Configure password file
+Configure listener
+Configure tnsnames.ora
+Set initialization parameters
+Configure LOG_ARCHIVE_DEST
+RMAN duplicate for standby
+Start Managed Recovery Process (MRP)
+Verify redo apply
+
+
+4. Data Guard Broker (DGB)
+
+What Broker is
+Why companies prefer Broker
+DMON process
+Configuration files
+Broker configuration
+Enable/Disable Broker
+Add database
+Remove database
+Validate database
+Reinstate database
+Edit properties
+Observer
+Fast Start Failover (FSFO)
+
+5. Daily DBA Health Checks
+
+Transport lag
+Apply lag
+MRP running?
+RFS running?
+Archive gap
+Standby open mode
+Managed recovery
+Broker status SUCCESS
+Alert log
+CRS status
+Listener status
+ASM status
+6. Common Operations
+Switchover
+Switchback
+Failover
+Reinstate
+Recover standby
+Start/Stop apply
+Cancel recovery
+Open standby read only
+Snapshot standby
+Flashback after failover
+
+7. Common Errors & Troubleshooting
+
+ORA-16664
+ORA-16698
+ORA-16766
+ORA-16810
+ORA-16853
+ORA-12514
+ORA-12154
+ORA-16047
+ORA-16057
+ORA-16086
+ORA-16191
+ORA-01153
+ORA-10458
+ORA-01033
+
+For each error, learn:
+
+What it means
+Why it happens
+How to diagnose
+How to fix it
+
+8. Troubleshooting Scenarios
+
+Practice scenarios like:
+
+Transport lag increasing
+Apply lag increasing
+MRP stopped
+RFS not running
+Archive gap exists
+Listener down
+Network failure
+Password file mismatch
+SRLs missing
+Disk full on standby
+Broker configuration disabled
+Standby not receiving redo
+Redo shipping working but apply stopped
+ORA errors during switchover
+9. Important Views
+
+Know what each view is used for.
+
+V$DATABASE
+V$DATAGUARD_STATS
+GV$MANAGED_STANDBY
+V$ARCHIVED_LOG
+V$ARCHIVE_DEST
+V$ARCHIVE_DEST_STATUS
+V$STANDBY_LOG
+V$LOG
+V$LOGFILE
+V$RECOVERY_PROGRESS
+V$RECOVERY_FILE_DEST
+10. RMAN and Data Guard
+
+Learn:
+
+Active duplicate
+Backup-based duplicate
+Restore standby
+Recover standby
+Incremental recovery
+Roll forward standby
+
+11. RAC + Data Guard
+
+Since many production environments use RAC:
+
+RAC Primary → RAC Standby
+Single Instance → RAC
+RAC → Single Instance
+Services after switchover
+SCAN listeners
+srvctl with Data Guard
+12. Real Production Tasks
+Add standby redo logs
+Resize standby redo logs
+Add tempfile
+Add datafile
+Temp tablespace synchronization
+Password file synchronization
+Parameter changes
+Rolling maintenance
+Database patching with Data Guard
+Suggested learning order
+Data Guard concepts (why it exists)
+Architecture
+Manual Data Guard setup
+Manual switchover/failover
+Data Guard Broker
+Health checks
+Troubleshooting
+RAC + Data Guard
+RMAN with Data Guard
+Real production scenarios
